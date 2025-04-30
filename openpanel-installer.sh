@@ -183,9 +183,11 @@ set_version_to_install(){
      	    response=$(curl -4 -s "https://hub.docker.com/v2/repositories/openpanel/openpanel-ui/tags")
      	    PANEL_VERSION=$(echo $response | jq -r '.results[0].name')
      	    if [[ ! "$PANEL_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-     	    	PANEL_VERSION="1.2.2" # fallback if hub.docker.com unreachable!
+     	    	PANEL_VERSION="1.2.5" # fallback if hub.docker.com unreachable!
      	    fi
-	fi
+	else
+        PANEL_VERSION="1.2.5"
+    fi
 }
 
 
