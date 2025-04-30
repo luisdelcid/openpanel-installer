@@ -26,7 +26,7 @@ export TERM=xterm-256color                                            # bug fix:
 export DEBIAN_FRONTEND=noninteractive
 # ======================================================================
 # Defaults for environment variables
-CUSTOM_VERSION="1.2.5"                                                # default version is latest
+CUSTOM_VERSION="1.2.4"                                                # default version is latest
 DEBUG=false                                                           # verbose output for debugging failed install
 SKIP_APT_UPDATE=false                                                 # they are auto-pulled on account creation
 SKIP_DNS_SERVER=false
@@ -183,10 +183,10 @@ set_version_to_install(){
      	    response=$(curl -4 -s "https://hub.docker.com/v2/repositories/openpanel/openpanel-ui/tags")
      	    PANEL_VERSION=$(echo $response | jq -r '.results[0].name')
      	    if [[ ! "$PANEL_VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
-     	    	PANEL_VERSION="1.2.5" # fallback if hub.docker.com unreachable!
+     	    	PANEL_VERSION="1.2.4" # fallback if hub.docker.com unreachable!
      	    fi
 	else
-        PANEL_VERSION="1.2.5"
+        PANEL_VERSION="1.2.4"
     fi
 }
 
